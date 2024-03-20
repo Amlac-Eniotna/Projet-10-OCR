@@ -35,7 +35,10 @@ const EventList = () => {
     setCurrentPage(1);
     setType(evtType);
   };
-  const pageNumber = Math.floor((filteredEventslength?.length || 0) / PER_PAGE);
+  const pageNumber = ((filteredEventslength?.length || 0) / PER_PAGE) < 1
+  ? Math.floor((filteredEventslength?.length || 0) / PER_PAGE)
+  : Math.ceil((filteredEventslength?.length || 0) / PER_PAGE);
+
   const typeList = new Set(data?.events.map((event) => event.type));
   return (
     <>
