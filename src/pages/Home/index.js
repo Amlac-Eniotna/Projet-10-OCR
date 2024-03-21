@@ -13,7 +13,7 @@ import Modal from "../../containers/Modal";
 import { useData } from "../../contexts/DataContext";
 
 const Page = () => {
-  const { data } = useData()
+  const { data } = useData();
   
   let last;
   data?.events.forEach((event, i) => {
@@ -130,7 +130,7 @@ const Page = () => {
           date={new Date(last?.date)}
           small
           label="boom"
-        /> : null}
+        /> : <p>chargement...</p>}
       </div>
       <div className="col contact">
         <h3>Contactez-nous</h3>
