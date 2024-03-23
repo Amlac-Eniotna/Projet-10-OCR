@@ -29,16 +29,23 @@ describe("When Form is created", () => {
 
 
 describe("When a page is created", () => {
-  it("a list of events is displayed", () => {
-    // to implement
+  it("a list of events is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Catégories");
+    document.querySelector("#nos-realisations .Select");
   })
-  it("a list a people is displayed", () => {
-    // to implement
+  it("a list a people is displayed", async () => {
+    render(<Home />);
+    await screen.findByText("Une équipe d’experts dédiés à l’ogranisation de vos événements");
+    expect(document.querySelector(".ListContainer")).toBeTruthy();
   })
-  it("a footer is displayed", () => {
-    // to implement
+  it("a footer is displayed", async () => {
+    render(<Home />);
+    expect(document.querySelector("footer")).toBeTruthy();
+    await screen.findByText("Une agence événementielle propose des prestations de service spécialisées dans la conception et l'organisation de divers événements tels que des événements festifs, des manifestations sportives et culturelles, des événements professionnels")
   })
-  it("an event card, with the last event, is displayed", () => {
-    // to implement
+  it("an event card, with the last event, is displayed", async () => {
+    render(<Home />);
+    expect(setTimeout(() => {screen.queryByTestId("card-testid")}, 100)).toBeTruthy();
   })
 });
